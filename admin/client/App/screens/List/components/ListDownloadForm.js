@@ -7,7 +7,7 @@ import { LabelledControl, Form, FormField, SegmentedControl } from '../../../ele
 
 import { downloadItems } from '../actions';
 const FORMAT_OPTIONS = [
-	{ label: 'CSV', value: 'csv' },
+	{ label: 'EXCEL', value: 'csv' },
 	{ label: 'JSON', value: 'json' },
 ];
 
