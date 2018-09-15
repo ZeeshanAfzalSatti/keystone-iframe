@@ -646,7 +646,6 @@ const ListView = React.createClass({
 	},
 	renderIframeView() { // Custom Action View
 		const { action_url, id } = this.state;
-		console.log('Idd', id)
 		const iframeURL = `${Keystone.externalHost}/${action_url}/${id}`;
 		return <IframeContent src={iframeURL} show={this.state.showIframe} onCancel={this.closeCreateModal} onSave={this.onCreate} className={"full-screen"} />;
 	},
