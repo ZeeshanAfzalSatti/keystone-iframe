@@ -275,8 +275,8 @@ var EditForm = React.createClass({
 		// innerHeight at runtime. Aphrodite's styling comes later...
 
 		return (
-			<FooterBar style={styles.footerbar}>
-				<div style={styles.footerbarInner}>
+			<FooterBar style={{...styles.footerbarInner, 'background': '#e8e4e4'}}>
+				<div style={{...styles.footerbarInner}} >
 					{!this.props.list.noedit && (
 						<LoadingButton
 							color="primary"

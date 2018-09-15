@@ -41,7 +41,7 @@ var PrimaryNavigation = React.createClass({
 				href={this.props.signoutUrl}
 				title="Sign Out"
 			>
-				<span className="octicon octicon-sign-out" />
+				 Sign Out
 			</PrimaryNavItem>
 		);
 	},
@@ -81,7 +81,7 @@ var PrimaryNavigation = React.createClass({
 				label="octicon-home"
 				title={'Front page - ' + this.props.brand}
 		 	>
-		 		<span className="octicon octicon-home" />
+		 		Home
 		 	</PrimaryNavItem>
 	 	);
 	},
