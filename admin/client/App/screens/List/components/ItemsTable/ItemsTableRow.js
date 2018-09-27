@@ -13,7 +13,7 @@ import {
 	setRowAlert,
 	moveItem,
 } from '../../actions';
-
+import moment from  'moment'
 const ItemsRow = React.createClass({
 	propTypes: {
 		columns: React.PropTypes.array,
@@ -56,8 +56,21 @@ const ItemsRow = React.createClass({
 				<ListControl key="_delete" onClick={(e) => this.props.deleteTableItem(item, e)} type="delete" />
 			));
 		}
-
-		var addRow = (<tr key={'i' + item.id} onClick={this.props.manageMode ? (e) => this.props.checkTableItem(item, e) : null} className={rowClassname}>{cells}</tr>);
+		const  {fields: {upto}={}} = item
+		let backgroundColor = 'none'
+		if (upto){
+			if(moment().isSameOrAfter(moment(upto).subtract('30', 'days'), 'day')){
+				backgroundColor = 'Red'
+			}
+			else if(moment().isSameOrAfter(moment(upto).subtract('60', 'days'), 'day')){
+				backgroundColor = 'Yellow'
+			}
+		}
+		console.log(upto)
+		var addRow = (<tr key={'i' + item.id}
+		title = {upto ? `Expire in ${moment(upto).from(moment())}`: ''}
+		style={{backgroundColor}} onClick={this.props.manageMode ? (e) => this.props.checkTableItem(item, e) : null} className={rowClassname}>{cells}
+		<td style={{color: '#80777a', fontWeight: 'bold', display: !upto ? 'none':  'block'}}>Expire {moment(new Date(upto)).fromNow()}</td></tr>);
 
 		if (this.props.list.sortable) {
 			return (
