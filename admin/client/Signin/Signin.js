@@ -103,6 +103,7 @@ var SigninView = React.createClass({
 				<div className={boxClassname}>
 					<h1 className="u-hidden-visually">{this.props.brand ? this.props.brand : 'Keystone'} Sign In </h1>
 					<div className="auth-box__inner">
+					<h3 className="center-center">Welcome to Chaman</h3>
 						<Brand
 							logo={this.props.logo}
 							brand={this.props.brand}

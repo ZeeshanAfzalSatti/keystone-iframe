@@ -1,7 +1,7 @@
 module.exports = function initList(req, res, next) {
 	var keystone = req.keystone;
 	const {user: {userType, _id: userId}, body = {}, params: {id} = {}} = req
-	console.log('hell')
+
 	if (userType !== 'Super Admin' && body.hasOwnProperty('secure') && userId != id) {
 		return res.status(400).json({error: 'You don\'t have permission for this operation'});
 	}

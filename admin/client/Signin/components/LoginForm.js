@@ -34,8 +34,7 @@ const LoginForm = ({
 				</FormField>
 				<Button disabled={isAnimating} color="primary" type="submit">
 					Sign In
-				</Button><br/><br/>
-				<a href="/forgot_password" title="Forgot Password">Forgot Password?</a>
+				</Button>
 			</Form>
 		</div>
 	);
