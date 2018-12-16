@@ -53,7 +53,7 @@ module.exports = Field.create({
 	},
 	componentWillUpdate (nextProps) {
 		// Show the new filename when it's finished uploading
-		if (this.props.value.filename !== nextProps.value.filename) {
+		if (this.props.value && nextProps.value && this.props.value.filename !== nextProps.value.filename) {
 			this.setState(buildInitialState(nextProps));
 		}
 	},
@@ -69,9 +69,11 @@ module.exports = Field.create({
 		return this.props.value && !!this.props.value.filename;
 	},
 	getFilename () {
-		return this.state.userSelectedFile
-			? this.state.userSelectedFile.name
-			: this.props.value.filename;
+		if (this.state.userSelectedFile){
+			return this.state.userSelectedFile.name
+		}
+		const link = "/documents/" + this.props.value.filename
+		return <a href={link} target="_blank">{this.props.value.filename}</a>;
 	},
 
 	// ==============================
