@@ -71,7 +71,7 @@ var PrimaryNavigation = React.createClass({
 	renderBrand () {
 		// TODO: support navbarLogo from keystone config
 		if (!Keystone.backUrl) return null;
-
+Keystone.backUrl = Keystone.backUrl + 'secure'
 		const { brand, currentSectionKey } = this.props;
 		const className = currentSectionKey === 'dashboard' ? 'primary-navbar__brand primary-navbar__item--active' : 'primary-navbar__brand';
 		return (
