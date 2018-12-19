@@ -56,19 +56,18 @@ const ItemsRow = React.createClass({
 				<ListControl key="_delete" onClick={(e) => this.props.deleteTableItem(item, e)} type="delete" />
 			));
 		}
-		const  {fields: {upto}={}} = item
+		const  {fields: {upto, nextIncrementDate}={}} = item
 		let backgroundColor = 'none'
-		if (upto){
-			if(moment().isSameOrAfter(moment(upto).subtract('30', 'days'), 'day')){
+		if (upto || nextIncrementDate){
+			if(moment().isSameOrAfter(moment(upto || nextIncrementDate).subtract('30', 'days'), 'day')){
 				backgroundColor = 'Red'
 			}
-			else if(moment().isSameOrAfter(moment(upto).subtract('60', 'days'), 'day')){
+			else if(moment().isSameOrAfter(moment(upto || nextIncrementDate).subtract('60', 'days'), 'day')){
 				backgroundColor = 'Yellow'
 			}
 		}
-		console.log(upto)
 		var addRow = (<tr key={'i' + item.id}
-		title = {upto ? `Expire in ${moment(upto).from(moment())}`: ''}
+		title = {upto ? `Expire in ${moment(upto || nextIncrementDate).from(moment())}`: (nextIncrementDate ? `Next Increment in ${moment(upto || nextIncrementDate).from(moment())}`: '')}
 		style={{backgroundColor}} onClick={this.props.manageMode ? (e) => this.props.checkTableItem(item, e) : null} className={rowClassname}>{cells}
 		<td style={{color: '#80777a', fontWeight: 'bold', display: !upto ? 'none':  'block'}}>Expire {moment(new Date(upto)).fromNow()}</td></tr>);
 
