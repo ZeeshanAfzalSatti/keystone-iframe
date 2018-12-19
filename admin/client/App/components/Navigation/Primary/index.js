@@ -108,7 +108,7 @@ Keystone.backUrl = Keystone.backUrl + 'secure'
 		});
 
 		array.push(<li className="primary-navbar__item">
-			<a className='primary-navbar__link' href="http://18.188.246.13" target='_blank'> Reports and Receipts </a>
+			<a className='primary-navbar__link' href="http://18.188.246.13" target='_self'> Reports and Receipts </a>
 		</li>)
 
 		return array
