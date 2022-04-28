@@ -43,7 +43,7 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "async": "2.2.0",
+    "async": "2.6.4",
     "asyncdi": "1.1.0",
     "babel-core": "6.22.1",
     "babel-plugin-transform-object-assign": "6.22.0",
